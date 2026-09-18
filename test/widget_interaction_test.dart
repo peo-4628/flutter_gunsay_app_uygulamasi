@@ -8,7 +8,7 @@ void main() {
   testWidgets('Open settings and events sheet', (WidgetTester tester) async {
     SharedPreferences.setMockInitialValues({});
 
-    await tester.pumpWidget(const GunSayerApp());
+    await tester.pumpWidget(const GunSayerApp(disablePlatformPlugins: true));
     await tester.pumpAndSettle();
 
     expect(find.text('Gün Sayacı'), findsOneWidget);

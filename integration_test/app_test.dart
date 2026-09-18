@@ -8,7 +8,7 @@ void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
   testWidgets('app smoke test - launch and open add page', (WidgetTester tester) async {
-    await tester.pumpWidget(const GunSayerApp());
+    await tester.pumpWidget(const GunSayerApp(disablePlatformPlugins: true));
     await tester.pumpAndSettle();
 
     expect(find.text('Gün Sayacı'), findsOneWidget);
