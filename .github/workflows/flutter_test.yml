@@ -19,7 +19,12 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: 'stable'
+          flutter-version: '3.13.6'
+
+      - name: Show Flutter info
+        run: |
+          flutter --version
+          which flutter || true
 
       - name: Cache Pub packages
         uses: actions/cache@v4
