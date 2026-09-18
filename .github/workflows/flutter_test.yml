@@ -34,8 +34,3 @@ jobs:
       - name: Run unit tests
         run: flutter test --no-fail-on-severe
 
-      - name: Upload test results (JUnit)
-        if: always()
-        uses: mikeal/publish-to-github-action@master
-        with:
-          args: "echo 'Tests finished'"
