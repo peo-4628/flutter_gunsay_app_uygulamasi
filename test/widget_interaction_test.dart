@@ -4,10 +4,14 @@ import 'package:flutter/material.dart';
 
 import 'package:gunsay/main.dart';
 
-void main() {
-  testWidgets('Open settings and events sheet', (WidgetTester tester) async {
-    SharedPreferences.setMockInitialValues({});
+import 'test_setup.dart';
 
+void main() {
+  setUpAll(() async {
+    await initTestEnvironment();
+  });
+
+  testWidgets('Open settings and events sheet', (WidgetTester tester) async {
     await tester.pumpWidget(const GunSayerApp(disablePlatformPlugins: true));
     await tester.pumpAndSettle();
 

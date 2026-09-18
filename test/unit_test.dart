@@ -6,7 +6,13 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:gunsay/main.dart';
 
+import 'test_setup.dart';
+
 void main() {
+  setUpAll(() async {
+    await initTestEnvironment();
+  });
+
   group('Etkinlik serialization', () {
     test('toJson/fromJson roundtrip preserves fields', () {
       final now = DateTime(2026, 9, 18, 12, 34, 56);

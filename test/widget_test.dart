@@ -10,10 +10,14 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:gunsay/main.dart';
 
-void main() {
-  testWidgets('Uygulama açılır ve ana ekran görünür', (WidgetTester tester) async {
-    SharedPreferences.setMockInitialValues({});
+import 'test_setup.dart';
 
+void main() {
+  setUpAll(() async {
+    await initTestEnvironment();
+  });
+
+  testWidgets('Uygulama açılır ve ana ekran görünür', (WidgetTester tester) async {
     await tester.pumpWidget(const GunSayerApp(disablePlatformPlugins: true));
 
     expect(find.text('Gün Sayacı'), findsOneWidget);

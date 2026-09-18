@@ -4,8 +4,14 @@ import 'package:flutter/material.dart';
 
 import 'package:gunsay/main.dart';
 
+import '../test/test_setup.dart';
+
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
+
+  setUpAll(() async {
+    await initTestEnvironment();
+  });
 
   testWidgets('app smoke test - launch and open add page', (WidgetTester tester) async {
     await tester.pumpWidget(const GunSayerApp(disablePlatformPlugins: true));
